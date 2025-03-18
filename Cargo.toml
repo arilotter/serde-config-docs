@@ -1,0 +1,17 @@
+workspace = { members = ["demo", "serde-config-docs-derive"] }
+[package]
+name = "serde-config-docs"
+description = "Generate Markdown docs for your serde code!"
+publish = false
+version = "0.1.0"
+
+edition = "2021"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde-config-docs-derive = { path = "./serde-config-docs-derive" }
+toml = { version = "0.8", optional = true }
+
+[features]
+default = ["toml"]
+toml = ["dep:toml"]
